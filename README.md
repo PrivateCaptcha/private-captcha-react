@@ -1,5 +1,7 @@
 # Private Captcha React Component
 
+[![NPM Version badge](https://img.shields.io/npm/v/%40private-captcha/private-captcha-react)](https://www.npmjs.com/package/@private-captcha/private-captcha-react) ![Lint](https://github.com/PrivateCaptcha/private-captcha-react/actions/workflows/eslint.yml/badge.svg)
+
 A React component for integrating Private Captcha's client-side proof-of-work captcha into your React applications.
 
 ## Installation
