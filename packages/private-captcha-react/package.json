@@ -1,0 +1,30 @@
+{
+  "name": "@private-captcha/private-captcha-react",
+  "version": "0.0.1",
+  "description": "React component for client-side Private Captcha widget",
+  "main": "src/CaptchaWidget.tsx",
+  "keywords": [
+    "anti-bot",
+    "protection",
+    "captcha",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/**/*.tsx"
+  },
+  "dependencies": {
+    "@private-captcha/private-captcha-js-core": "0.0.8"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18"
+  },
+  "bugs": {
+    "url": "https://github.com/PrivateCaptcha/private-captcha-react/issues"
+  },
+  "homepage": "https://docs.privatecaptcha.com/docs/integrations/react/"
+}
