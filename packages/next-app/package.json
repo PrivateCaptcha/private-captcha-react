@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@private-captcha/react": "file:../private-captcha-react",
-    "next": "15.3.4",
+    "next": "15.4.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
@@ -22,7 +22,7 @@
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "15.3.4",
+    "eslint-config-next": "15.4.5",
     "@eslint/eslintrc": "^3"
   }
 }
