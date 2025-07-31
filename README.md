@@ -12,6 +12,8 @@ npm install @private-captcha/private-captcha-react
 
 ## Basic Usage
 
+> NOTE: Captcha component is only being rendered **inside the form**
+
 ```tsx
 import React from 'react';
 import { PrivateCaptcha } from '@private-captcha/private-captcha-react';
