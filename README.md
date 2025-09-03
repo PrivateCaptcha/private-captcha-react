@@ -19,8 +19,8 @@ import React from 'react';
 import { PrivateCaptcha } from '@private-captcha/private-captcha-react';
 
 function MyForm() {
-  const handleCaptchaFinished = (opts) => {
-    console.log('Captcha solved!', opts.solution());
+  const handleCaptchaFinished = (detail) => {
+    console.log('Captcha solved!', detail.widget.solution());
     // Submit your form here or enable the submit button
   };
 
@@ -32,7 +32,7 @@ function MyForm() {
       <PrivateCaptcha
         siteKey="your-site-key-here"
         theme="dark"
-        finishedCallback={handleCaptchaFinished}
+        onFinish={handleCaptchaFinished}
       />
 
       <button type="submit">Login</button>
@@ -53,19 +53,21 @@ function MyForm() {
 
 Please refer to the [official widget options](https://docs.privatecaptcha.com/docs/reference/widget-options/) documentation.
 
-### Callback Props
+### Event Handler Props
 
-All callback functions receive an `opts` object with these methods:
-- `start()` - Start solving the captcha
-- `reset()` - Reset the captcha
-- `solution()` - Get the current solution string
+All event handler functions receive a `detail` object with these properties:
+- `detail.widget` - The captcha widget instance with methods:
+  - `start()` - Start solving the captcha
+  - `reset()` - Reset the captcha
+  - `solution()` - Get the current solution string
+- `detail.element` - The DOM element hosting the captcha
 
 | Prop | Type | Description |
 |------|------|-------------|
-| `initCallback` | `(opts) => void` | Called when captcha is initialized |
-| `startedCallback` | `(opts) => void` | Called when solving starts |
-| `finishedCallback` | `(opts) => void` | Called when solving completes |
-| `erroredCallback` | `(opts) => void` | Called when an error occurs |
+| `onInit` | `(detail) => void` | Called when captcha is initialized |
+| `onStart` | `(detail) => void` | Called when solving starts |
+| `onFinish` | `(detail) => void` | Called when solving completes |
+| `onError` | `(detail) => void` | Called when an error occurs |
 
 ## Examples
 
