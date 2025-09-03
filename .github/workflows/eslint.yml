@@ -5,6 +5,7 @@ on:
     - '**'
     paths:
     - '**/*.js'
+    - '**/*.tsx'
     - '.github/workflows/eslint.yml'
     - '!node_modules/**'
     tags-ignore:
