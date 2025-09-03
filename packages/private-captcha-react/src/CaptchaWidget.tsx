@@ -3,18 +3,17 @@ import React, { useEffect, useRef, useState } from 'react';
 // @ts-expect-error - no types definition for this package
 import { CaptchaWidget } from '@private-captcha/private-captcha-js-core';
 
-type CallbackOpts = {
-  start: () => void;
-  reset: () => void;
-  solution: () => string;
+type CaptchaEventDetail = {
+  widget: any;
+  element: HTMLElement;
 };
 
 type PrivateCaptchaProps = {
   siteKey: string;
-  finishedCallback?: (opts: CallbackOpts) => void;
-  startedCallback?: (opts: CallbackOpts) => void;
-  erroredCallback?: (opts: CallbackOpts) => void;
-  initCallback?: (opts: CallbackOpts) => void;
+  onInit?: (detail: CaptchaEventDetail) => void;
+  onError?: (detail: CaptchaEventDetail) => void;
+  onStart?: (detail: CaptchaEventDetail) => void;
+  onFinish?: (detail: CaptchaEventDetail) => void;
   theme?: 'light' | 'dark';
   startMode?: 'click' | 'auto';
   debug?: boolean;
@@ -28,7 +27,7 @@ type PrivateCaptchaProps = {
 };
 
 export const PrivateCaptcha = (props: PrivateCaptchaProps) => {
-  const { siteKey, ...widgetOptions } = props;
+  const { siteKey, onInit, onError, onStart, onFinish, ...widgetOptions } = props;
   const captchaRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -36,13 +35,47 @@ export const PrivateCaptcha = (props: PrivateCaptchaProps) => {
     if (isLoaded || !captchaRef.current) return;
     setIsLoaded(true);
 
-    // Filter out undefined values from the options
+    // Filter out undefined values and event handlers from the options
     const filteredOptions = Object.fromEntries(
       Object.entries(widgetOptions).filter(([, value]) => value !== undefined)
     );
 
     new CaptchaWidget(captchaRef.current, filteredOptions);
   }, [isLoaded, captchaRef, widgetOptions]);
+
+  // Set up event listeners
+  useEffect(() => {
+    const element = captchaRef.current;
+    if (!element) return;
+
+    const handleInit = (event: CustomEvent<CaptchaEventDetail>) => {
+      onInit?.(event.detail);
+    };
+
+    const handleError = (event: CustomEvent<CaptchaEventDetail>) => {
+      onError?.(event.detail);
+    };
+
+    const handleStart = (event: CustomEvent<CaptchaEventDetail>) => {
+      onStart?.(event.detail);
+    };
+
+    const handleFinish = (event: CustomEvent<CaptchaEventDetail>) => {
+      onFinish?.(event.detail);
+    };
+
+    element.addEventListener('privatecaptcha:init', handleInit as EventListener);
+    element.addEventListener('privatecaptcha:error', handleError as EventListener);
+    element.addEventListener('privatecaptcha:start', handleStart as EventListener);
+    element.addEventListener('privatecaptcha:finish', handleFinish as EventListener);
+
+    return () => {
+      element.removeEventListener('privatecaptcha:init', handleInit as EventListener);
+      element.removeEventListener('privatecaptcha:error', handleError as EventListener);
+      element.removeEventListener('privatecaptcha:start', handleStart as EventListener);
+      element.removeEventListener('privatecaptcha:finish', handleFinish as EventListener);
+    };
+  }, [onInit, onError, onStart, onFinish]);
 
   const buildDataAttributes = () => {
     const attrs: Record<string, string | boolean> = {
