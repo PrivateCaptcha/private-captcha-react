@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CaptchaWidget } from '@private-captcha/private-captcha-js-core';
 
 type CaptchaEventDetail = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   widget: any;
   element: HTMLElement;
 };

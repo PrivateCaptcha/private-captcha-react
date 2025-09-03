@@ -14,7 +14,7 @@ const eslintConfig = [
   {
     files: ["packages/next-app/**/*"],
     rules: {
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "off"
     },
   },
 ];
