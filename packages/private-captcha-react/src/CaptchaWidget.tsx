@@ -20,7 +20,7 @@ type PrivateCaptchaProps = {
   debug?: boolean;
   fieldName?: string;
   puzzleEndpoint?: string;
-  displayMode?: 'widget' | 'popup';
+  displayMode?: 'widget' | 'popup' | 'hidden';
   lang?: string;
   styles?: string;
   storeVariable?: string;
