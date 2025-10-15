@@ -25,6 +25,7 @@ type PrivateCaptchaProps = {
   styles?: string;
   storeVariable?: string;
   eu?: boolean;
+  compat?: 'recaptcha';
 };
 
 export const PrivateCaptcha = (props: PrivateCaptchaProps) => {
