@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 // @ts-expect-error - no types definition for this package
 import { CaptchaWidget } from '@private-captcha/private-captcha-js-core';
 
