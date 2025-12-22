@@ -3,6 +3,10 @@
   "version": "0.0.5",
   "description": "React component for client-side Private Captcha widget",
   "main": "src/CaptchaWidget.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrivateCaptcha/private-captcha-react.git"
+  },
   "keywords": [
     "anti-bot",
     "protection",
