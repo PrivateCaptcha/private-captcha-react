@@ -17,7 +17,7 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Check if version should be published
@@ -45,20 +45,18 @@ jobs:
     environment: Component release
     permissions:
       contents: read
-      packages: write
+      id-token: write  # Required for OIDC
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.x'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install NPM dependencies
         run: npm ci
 
       - name: Publish widget library
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
         working-directory: ./packages/private-captcha-react
