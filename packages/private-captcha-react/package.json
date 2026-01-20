@@ -1,6 +1,6 @@
 {
   "name": "@private-captcha/private-captcha-react",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "React component for client-side Private Captcha widget",
   "main": "src/CaptchaWidget.tsx",
   "repository": {
