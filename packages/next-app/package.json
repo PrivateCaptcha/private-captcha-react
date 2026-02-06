@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@private-captcha/react": "file:../private-captcha-react",
-    "next": "15.4.10",
+    "next": "15.5.10",
     "react": "^19.1.0",
     "react-dom": "^18.0.0"
   },
