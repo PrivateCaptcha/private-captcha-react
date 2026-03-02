@@ -1,6 +1,6 @@
 {
   "name": "@private-captcha/private-captcha-react",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React component for client-side Private Captcha widget",
   "main": "src/CaptchaWidget.tsx",
   "repository": {
@@ -19,7 +19,7 @@
     "lint": "eslint src/**/*.tsx"
   },
   "dependencies": {
-    "@private-captcha/private-captcha-js-core": "0.0.22"
+    "@private-captcha/private-captcha-js-core": "0.0.23"
   },
   "peerDependencies": {
     "react": "^18.0.0"
