@@ -19,7 +19,7 @@
     "lint": "eslint src/**/*.tsx"
   },
   "dependencies": {
-    "@private-captcha/private-captcha-js-core": "0.0.24"
+    "@private-captcha/private-captcha-js-core": "0.0.25"
   },
   "peerDependencies": {
     "react": "^18.0.0"
