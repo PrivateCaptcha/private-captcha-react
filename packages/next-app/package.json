@@ -12,7 +12,7 @@
     "@private-captcha/react": "file:../private-captcha-react",
     "next": "15.5.18",
     "react": "^19.1.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "typescript": "^5",
