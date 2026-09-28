@@ -16,7 +16,7 @@ type PrivateCaptchaProps = {
   onStart?: (detail: CaptchaEventDetail) => void;
   onFinish?: (detail: CaptchaEventDetail) => void;
   theme?: 'light' | 'dark';
-  startMode?: 'click' | 'auto';
+  startMode?: 'click' | 'auto' | 'load';
   debug?: boolean;
   fieldName?: string;
   puzzleEndpoint?: string;
